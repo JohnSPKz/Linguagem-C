@@ -1,0 +1,108 @@
+1) Elabore um programa que leia 10 números inteiros. Ao final, mostre a  soma de todos os números lidos. 
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int num = 0, soma = 0, cont = 0; 
+ do{ 
+ cout << "Digite um numero: "; 
+ cin >> num; 
+ soma += num; 
+ cont++; 
+ } 
+while(cont < 10); 
+ cout << "A soma dos numero inteiros sao:" << soma << endl;  return 0; 
+} 
+
+2) Faça um programa que some os números ímpares entre 1 e 99. 
+
+#include <iostream> 
+using namespace std; 
+int main(){ 
+int contador = 0; 
+int soma = 0; 
+do{ 
+if(contador %2 != 0){ 
+soma += contador;} 
+contador++;} 
+while(contador <= 99); 
+cout << "O resultado da soma do 1 a 99 foi de :" << soma << endl; return 0; 
+} 
+
+3) Faça um programa que leia as notas de vários alunos em uma prova de  Programação I (encerre a digitação quando for informada uma nota menor  que zero). Ao final, mostre:  
+(a) A média da sala  
+(b) A maior nota  
+(c) A menor nota  
+(d) Quantas notas foram menores que 7 
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ float nota=1,vermelhas=0, maiornota=0, menornota=9999, media=0, i=0,  soma=0; 
+ cout<<"Digite a Nota do Aluno: "; 
+ cin>>nota; 
+ do{ 
+ if(nota > maiornota){ 
+ maiornota = nota; 
+ } 
+ else{ 
+ if(nota < menornota){ 
+ menornota = nota; 
+ if (nota < 70){ 
+ vermelhas = vermelhas + 1; 
+ } 
+ } 
+ } 
+ soma =+ nota;
+ i=i+1; 
+ cout<<"Digite a Nota do Aluno: "; 
+ cin>>nota;}while(nota > 0); 
+ media = soma/i; 
+ cout<<"A maior nota: "<< maiornota <<endl; 
+ cout<<"A menor nota: "<< menornota <<endl; 
+ cout<<"Quantos tiraram nota menor que 70: "<< vermelhas <<endl;  cout<<"Media da sala foi de : "<< media <<endl; 
+ return 0; 
+} 
+
+4) O professor Girafales decidiu dar uma coxinha para o aluno com a maior  nota na prova. Faça um algoritmo que leia as notas de n provas (não se sabe  a quantidade previamente, portanto encerre a digitação quando for digitada  uma nota negativa). Ao final, o algoritmo deve mostrar a nota do aluno  ganhador.  
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int nota = 1; 
+ int maiornumero = 0; 
+ int soma = 0; 
+ do{
+ cout << "Digite valor da nota" << endl; 
+ cin >> nota; 
+ if(nota >= 70){ 
+ soma += nota; 
+ if(nota > maiornumero){ 
+ maiornumero = nota; 
+ } 
+ } 
+ }while(nota > 0); 
+ cout << "A coxinha vai para o numero: " << " " << maiornumero << "." << endl;  return 0; 
+}
+
+5) Faça um algoritmo que leia uma quantidade não conhecida previamente  de números inteiros maiores que zero. Encerre a digitação quando for  informado o número zero. Ao final, mostre qual o maior número que foi  digitado. 
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{
+ int valor = 1; 
+ int maiornumero = 0; 
+ cout << "Digite 0 para encerrar" << endl; 
+ do{ 
+ cout << "Digite um Numero" << endl; 
+ cin >> valor; 
+ if (valor > maiornumero){ 
+ maiornumero = valor; 
+ } 
+ }while(valor > 0); 
+ cout << "Numero maior foi:" << " " << maiornumero <<endl;  return 0; 
+}
