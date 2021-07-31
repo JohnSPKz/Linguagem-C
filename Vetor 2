@@ -1,0 +1,119 @@
+1) Faça um programa que possua um vetor denominado A que armazene 6 números inteiros.  O programa deve executar os seguintes passos:  
+(a) Atribua os seguintes valores a esse vetor: 1, 0, 5, -2, -5, 7.  
+(b) Armazene em uma variável inteira (simples) a soma entre os valores das posições  A[0], A[1] e A[5] do vetor e mostre na tela esta soma.  
+(c) Modifique o vetor na posição 4, atribuindo a esta posição o valor 100. (d) Mostre na tela cada valor do vetor A, um em cada linha.  
+
+#include <iostream> 
+#include <stdio.h> 
+using namespace std; 
+int main(void) { 
+int j[6], i; 
+ for(i=0; i<=5; i++){ 
+ cout << "Digite o valor do Vetor [" << i+1 << "] = "; 
+ cin >>j[i]; 
+} 
+j[4]=100; 
+cout << "\nResultado:\n\n"; 
+for(i=0; i<=5; i++){ 
+cout<< "Vetor numero [" << i << "] " << j[i] << endl; 
+} 
+cout << "Soma dos Vetores [0], [1] e [5]: " << j[0]+j[1]+j[5]; 
+return 0; 
+} 
+
+2) Faça um programa que leia um vetor de 8 posições e, em seguida, leia também dois  valores X e Y quaisquer correspondentes a duas posições no vetor. Ao final seu programa  deverá escrever a soma dos valores encontrados nas respectivas posições X e Y. 
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int vetor[8]; 
+ int x; 
+ int y; 
+ for(int i=0; i < 8; i++){ 
+ cout << "VETOR [" <<i<< "] = "; 
+ cin >> vetor[i]; 
+ } 
+ cout << "Digite o valor para X de 0 a 7" << endl; 
+ cin >> x; 
+ cout << "Digite o valor para Y" << endl; 
+ cin >> y; 
+ cout << endl; 
+ cout << "VETOR ["<< x << "] = " << vetor[x] << endl; 
+ cout << "VETOR ["<< y << "] = " << vetor[y] << endl; 
+ cout << vetor[x] << " + " << vetor[y] << " = " << vetor[x] + vetor[y] << endl;  return 0; 
+} 
+
+3) Leia um vetor de 10 posições. Contar e escrever quantos valores pares ele possui. 
+
+#include<iostream> 
+using namespace std; 
+int main() { 
+ int vetor[10]; 
+ int pares = 0; 
+ for(int i = 0;i < 10; i++){ 
+ cout << "Valor do Vetor [" << i <<"] = "; 
+ cin >> vetor[i]; 
+ if(vetor[i] %2 == 0){ 
+ pares++; 
+ } 
+ } 
+ cout << endl; 
+ cout << "Total de Numeros Pares = " << pares << endl; 
+return 0; 
+} 
+
+4) Faça um programa que receba do usuário um vetor com 10 posições. Em seguida deverá  ser impresso o maior e o menor elemento do vetor.  
+
+#include <iostream>
+using namespace std; 
+int main() 
+{ 
+ int vet[10]; 
+ int maior; 
+ int menor; 
+ for(int j = 0; j <= 5; j++){ 
+ cout << "Digite o vetor["<< j << "] = "; 
+ cin >> vet[j]; 
+ } 
+ for(int i = 0; i <= 5; i++){ 
+ if(i == 0){ 
+ menor = vet[i]; 
+ maior = vet[i]; 
+ } 
+ else{ 
+ if(vet[i] > maior){ 
+ maior = vet[i]; 
+ } 
+ else if(vet[i] < menor){ 
+ menor = vet[i]; 
+ } 
+ } 
+ } 
+ cout << "Com maior valor foi o vetor = " << maior << endl; 
+ cout << "Com menor valor foi o vetor = " << menor << endl; 
+ return 0; 
+} 
+
+5) Faça um programa que preencha um vetor com 10 números reais, calcule e mostre a  quantidade de números negativos e a soma dos números positivos desse vetor. 
+
+#include <iostream>
+using namespace std; 
+int main() 
+{ 
+ float vetor[10]; 
+ float soma = 0; 
+ int quantidade = 0; 
+ for(int i = 0; i < 10; i++){ 
+ cout << "Digite Valor Do Vetor [" <<i<< "] = ";  cin >> vetor[i]; 
+ } 
+ for(int a = 0; a < 10; a++){ 
+ if(vetor[a] < 0){ 
+ quantidade++; 
+ } 
+ else{ 
+ soma += vetor[a]; 
+ } 
+ } 
+ cout << "Quantidade " << quantidade << endl;  cout << "Soma dos Positivos "<< soma << endl;  return 0; 
+}

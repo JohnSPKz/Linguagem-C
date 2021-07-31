@@ -1,0 +1,70 @@
+1) (Compras) Faça um programa que peça ao usuário para inserir 5 itens  comprados em uma loja. Para cada item, deve ser informado seu código,  quantidade e seu valor unitário. Depois disso, montar na tela um  “demonstrativo” contendo a informação do código, quantidade, valor unitário e  valor total de cada item, e um valor total geral. Exemplo de impressão  (Exercício 8, pág. 37 da apostila)  
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+int mat[5][2]; 
+float custo[5][2]; 
+float total=0; 
+for(int i=0; i <= 4; i++){ 
+cout << "DIGITE O CODIGO DA MERCADORIA [" << i+1 << "] = "; 
+cin >> mat[i][0]; 
+cout << "DIGITE A QUANTIDADE DA MARCADORIA [" << i+1 << "] = "; 
+cin >> mat[i][1];
+cout << "DIGITE O VALOR DA MERCADORIA [" << i+1 << "] = "; 
+cin >> custo[i][0]; 
+custo[i][1] = mat[i][1] * custo[i][0]; 
+} 
+cout << endl; 
+cout<< "Resultado"<<endl; 
+cout << endl; 
+cout << "CODIGO | QUANT | VALOR | TOTAL" << endl; 
+for(int i=0; i<5; i++){ 
+cout<<" " << mat[i][0]; 
+cout<<" " << mat[i][1]; 
+cout<<" "<< custo[i][0]; 
+cout<<" "<< custo[i][1]; 
+cout << endl; 
+total += custo[i][1]; 
+} 
+cout<<"VALOR TOTAL: " << total <<endl; 
+return 0; 
+}
+
+2) Leia uma matriz 3 x 5 que se refere respostas de 5 questões de múltipla  escolha, referentes a 3 alunos. Leia também um vetor de 5 posições contendo  o gabarito de respostas que podem ser a, b, c ou d. Seu programa devera  comparar as respostas de cada candidato com o gabarito e emitir um vetor  denominado resultado, contendo a pontuação correspondente a cada aluno.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ char prov[3][5]; 
+ char gab[5]; 
+ int resu[3] = {0,0,0}; 
+ cout<< "Adicione as Respostas ao Gabarito."<<endl; 
+ for (int i=0; i<5;i++){ 
+ cout<<"Digite o Gabarito da numero [" << i << "]" << endl; 
+ cin>>gab[i]; 
+ } 
+ cout << endl; 
+ cout<< "-- Respostas dos Alunos a baixo --" <<endl; 
+ for(int i=0; i<3; i++){ 
+ cout << endl;
+ cout <<"Corrigindo as questoes do aluno[" <<i<< "]" << endl;  cout << endl; 
+ for(int j=0; j<5; j++){ 
+ cout<<"Digite a resposta da questoes ["<<j<<"] do aluno [" << i << "]"<< endl;  cin >> prov[i][j]; 
+ } 
+ } 
+ for(int i=0; i<3; i++){ 
+ for (int j=0; j<5; j++){ 
+ if (prov[i][j] == gab[j]) 
+ { 
+ resu[i]++; 
+ } 
+ } 
+ } 
+ for (int i=0; i<3; i++){ 
+ cout << endl; 
+ cout<<"O ALUNO [" << i << "] TEVE UM ACERTO DE = " << resu[i]<<endl;  } 
+return 0; 
+}

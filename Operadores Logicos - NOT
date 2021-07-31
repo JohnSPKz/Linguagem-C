@@ -1,0 +1,61 @@
+*Utilizar o operador não (!) 
+*Para quem realizar a atividade em algum compilador, tirar prints da execução do programa. 
+Utilizar somente a estrutura If (simples). 
+
+1. Faça um programa que leia 1 número e verifique se o número é par. Exiba o resultado para o usuário. 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num=0;
+    cout << "Digite um Numero: ";
+    cin >> num;
+
+    if((num % 2 ==0)&& !(num == 1)){
+        cout << "Numero PAR";
+    }
+    return 0;
+}
+
+2. Faça um programa que leia 3 números reais do teclado e verifique se o primeiro é maior que a soma dos outros dois (Deverá exibir uma mensagem ao usuário informando se é maior). 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num1,num2,num3=0;
+    cout << "Digite um Numeros: ";
+    cin >> num1;
+    cout << "Digite um Numeros: ";
+    cin >> num2;
+    cout << "Digite um Numeros: ";
+    cin >> num3;
+    if((num1 > num2 + num3)&& !(num2 + num3 > num1)){
+    cout << "Primeiro Numero e Maior que a soma dos outros DOIS";
+    }
+    else {
+    cout << "A soma dos outros DOIS numero e Maior que o primeiro Numero";
+    }
+    return 0;
+}
+
+3. Faça um programa que leia a velocidade máxima permitida em uma avenida e a velocidade com que o motorista estava dirigindo nela e calcule a multa que uma pessoa vai receber, sabendo que são pagos: a) 50 reais se o motorista estiver ultrapassado em 10km/h a velocidade permitida. O programa deverá exibir o valor da multa caso tenha ultrapassado o limite de velocidade.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int VelAvenida, VelMotorista = 0;
+  cout << "Digite a velocidade da Avenida:" << endl;
+  cin >> VelAvenida;
+  cout << "Digite a velocidade do Veiculo:" << endl;
+  cin >> VelMotorista;
+  if ((VelMotorista <= VelAvenida+10) && !(VelMotorista >= VelAvenida+10)){
+  cout << "Nao recebera multa";
+  }
+  else{
+  cout << "Tera que pagar um multa de 50 Reias";
+  }
+  return 0;
+}

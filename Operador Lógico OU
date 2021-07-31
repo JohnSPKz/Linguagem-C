@@ -1,0 +1,65 @@
+1) Faça um programa que leia a idade e o tempo de serviço de um trabalhador e escreva se ele pode ou não se aposentar. As condições para aposentadoria são: - ter pelos menos 65 anos - ou ter trabalhado pelo menos 30 anos. 
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int idade, temp = 0;
+  cout << "Digite a sua idade: ";
+  cin >> idade;
+  cout << "Digite o tempo de servico: ";
+  cin >> temp;
+  if(idade >= 65 || temp >= 30){
+  cout << "Tem condicao de se aposentar.";
+  }
+  else {
+  cout << "Nao tem condicao de se aposentar.";
+  }
+  return 0;
+}
+
+2) Faça um programa que leia um número e verifique se este número é divisível por 3 ou por 5. Exibir mensagem para ou usuário. 
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int num = 0;
+  cout << "Digite um Numero" << endl;
+  cin >> num;
+  if((num %5 == 0)||(num %3 == 0)){
+  cout << "Este numero e divisivel por 3 ou 5";
+  }
+  else{
+  cout << "Nao e divisivel por 3 e nem 5";}
+  return 0;
+}
+
+3) Faça um programa que leia a sigla de um estado e exiba a região que pertence este estado. Exemplo do código: #include <iostream> #include <string.h> using namespace std; int main() { char estado[2]; cout << "estado" << endl; cin >> estado; if (strcmp(estado,"PR")==0){ cout << "Regiao Sul" << endl; } return 0; }
+ 
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+  char estado[2];
+  cout << "Use Apenas Letras Maiusculas Para Siglas... "<< endl;
+  cout << "Digite a sigla do estado: ";
+  cin >> estado;
+  if(strcmp(estado,"PR")==0 || strcmp(estado,"SC")==0 || strcmp(estado,"RS")==0 ){
+  cout << "Regiao SUL";
+  }
+  else if(strcmp(estado,"SP")==0 || strcmp(estado,"RJ")==0 || strcmp(estado,"MG")==0 || strcmp(estado,"ES")==0){
+  cout << "Regiao SUDESTE";
+  }
+  else if(strcmp(estado,"MS")==0 || strcmp(estado,"GO")==0 || strcmp(estado,"DF")==0 || strcmp(estado,"MT")==0){
+  cout << "Regiao CENTROESTE";
+  }
+  else if(strcmp(estado,"MA")==0 || strcmp(estado,"PI")==0 || strcmp(estado,"DA")==0 || strcmp(estado,"SE")==0 || strcmp(estado,"AL")==0 || strcmp(estado,"PE")==0 || strcmp(estado,"CE")==0 || strcmp(estado,"RN")==0|| strcmp(estado,"PB")==0){
+  cout << "Regiao NORDESTE";
+  }
+  else if(strcmp(estado,"RO")==0 || strcmp(estado,"AC")==0 || strcmp(estado,"AM")==0 || strcmp(estado,"RR")==0 || strcmp(estado,"AP")==0 || strcmp(estado,"PA")==0 || strcmp(estado,"TO")==0){
+  cout << "Regiao NORTE";
+  }
+  return 0;
+}

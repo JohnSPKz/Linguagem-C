@@ -1,0 +1,76 @@
+1)Exercícios de Fixação - Estrutura de Repetição 1) (Adega) O dono de um restaurante deseja  saber quantas garrafas de vinho de cada tipo há na adega. Escreva um algoritmo para contar  as garrafas e classificar os vinhos pelos tipos ‘T’ para tinto, ‘R’ para rosê e ‘B’ para branco. O  algoritmo deverá escrever no final: (a) o total de garrafas de vinho tinto (b) o total de garrafas  de vinho rosê (c) o total de garrafas de vinho branco (d) o total geral de garrafas A  
+quantidade de garrafas é desconhecida, por isso utilize uma estrutura de repetição com teste  no final. O final da digitação ocorre quando é informado o tipo ‘X’. O algoritmo deverá tratar  respostas erradas (diferentes de ‘T’, ‘R’, ‘B’ ou ‘X’) mostrando uma mensagem “Tipo  inválido”.  
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ char tipo = 'A'; 
+ int vtinto = 0; 
+ int vrose = 0; 
+ int vbranco = 0; 
+ do{ 
+ cout << "Digite o tipo de vinho em letra maiuscula" << endl;
+ cout << "T - Para vinho TINTO " << endl; 
+ cout << "R - para vinho ROSE " << endl; 
+ cout << "B - para vinho BRANCO " << endl; 
+ cout << "Tecle X para sair " << endl; 
+ cin >> tipo; 
+ if ( tipo == 'T' ){ 
+ vtinto++; 
+ } 
+ else if ( tipo == 'R'){ 
+ vrose++; 
+ } 
+ else if (tipo == 'B'){ 
+ vbranco++; 
+ } 
+ else if ( tipo != 'X'){ 
+ cout << "Digito invalido"<<endl; 
+ cout << endl; 
+ cout << endl; 
+ } 
+ }while(tipo != 'X'); 
+ cout << "vinho tinto = " << vtinto << endl; 
+ cout << "vinho rose = " << vrose << endl; 
+ cout << "vinho branco = " << vbranco << endl; 
+ cout << "total de garrafas = " << vtinto + vrose+ vbranco << endl; 
+ return 0; 
+}
+
+2)Faça um programa que realize as operações básicas de uma calculadora. O programa deve  fornecer um menu com as seguintes opções: 1 - Somar 2 - Subtrair 3 - Multiplicar 4 - Dividir  5 - Sair O usuário deverá escolher qual a operação desejada, e somente depois disso o  programa solicita os 2 números da operações. Depois de calculado e mostrado o resultado, o  programa deve mostrar o menu novamente. O programa só deverá finalizar caso o usuário  escolha a opção 5.
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int opcao = 4; 
+ int num1 = 0; 
+ int num2 = 0; 
+ while(opcao <= 4){ 
+ cout << "digite o numero da opcao que deseja" << endl; 
+ cout << "1 - SOMA" << endl; 
+ cout << "2 - SUBTRAIR" << endl; 
+ cout << "3 - MULTIPLICAR" << endl; 
+ cout << "4 - DIVIDIR" << endl; 
+ cout << "5 - SAIR" << endl; 
+ cout << endl; 
+ cin >> opcao; 
+ cout << endl; 
+ if(opcao < 5){ 
+ cout << "Digite 2 numeros" << endl; 
+ cin >> num1; 
+ cin >> num2;
+ } 
+ cout<<endl; 
+ if(opcao == 1){ 
+ cout << "Soma: " << num1 + num2 << endl;  } 
+ if(opcao == 2){ 
+ cout << "Sutracao: " << num1 - num2 << endl;  } 
+ if(opcao == 3){ 
+ cout << "Multiplicacao: " << num1 * num2 << endl;  } 
+ if(opcao == 4){ 
+ cout << "divisao: " << num1 / num2 << endl;  } 
+ } 
+ return 0; 
+}

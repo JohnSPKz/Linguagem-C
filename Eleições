@@ -1,0 +1,272 @@
+
+Eleições 
+Faça um programa que controle os candidatos a prefeito e os votos dos eleitores. O sistema  deve realizar: 
+• O cadastro de 10 candidatos a prefeito: Nome e o Número 
+o Não pode ser registrado números iguais; 
+• A Votação (Deve permitir que 20 pessoas votem): 
+o Deve solicitar o título de eleitor, e verificar se este já votou; 
+o Deve contabilizar os votos para prefeito; 
+o Caso o usuário informe um número inexistente, deve perguntar se ele quer  anular o voto; 
+o Deve dar a opção de brancos. 
+• A impressão dos prefeitos e seus votos (imprimir na ordem decrescente de votos); • A impressão do prefeito mais votado. 
+• A impressão dos votos bancos e nulos. 
+Opções do Menu 
+• Cadastro de Prefeito 
+• Cadastro de Eleitores 
+• Votação 
+• Listar os candidatos e os votos recebidos 
+• O prefeito eleito 
+• Imprimir votos brancos e nulos
+
+
+Entregas 
+07/11/2020  
+• Menu. 
+14/11/2020  
+• Os Cadastros (sem o controle de números repetidos); 
+• Os cadastros devem estar em funções separadas do método principal. 21/11/2020 
+• Os Cadastros (com o controle de números repetidos) 
+• Os cadastros devem estar em funções separadas do método principal. 28/11/2020 
+• As Impressões da Tela
+• As funções de impressão devem estar em funções separadas do método principal.
+
+
+#include <iostream> 
+#include <cstdlib> // biblioteca para utilizar system 
+#include <cstdio> 
+#include <cstring> 
+using namespace std; 
+char nomecandidato[10][30]; //matriz nome candidato 
+int numerocandidato[10]; //vetor com o numero do candidato 
+int contabilizavotos[0]; //vetor com o total de votos de cada candidato 
+int indice_prefeito = -1; //indice para cadastro 
+int votosbrancos = 0; //variavel para contabilizar os votos brancos 
+int votosnulos = 0; //variavel para contabilizar os votos nulos 
+char tituloeleitor[20][30]; 
+int quant_eleitores; //quantidade de eleitores que votaram 
+//limpa tela 
+void limpatela(){ 
+ system("cls"); 
+} 
+//menu 
+int menu(){ 
+ int opcao = 0; 
+ cout << "|-------------------MENU ELEICOES------------------|" << endl; 
+ cout << "| 1 - Cadastro de prefeito                        -|"<<endl; 
+ cout << "| 2 - Votacao                                     -|"<<endl; 
+ cout << "| 3 - Listar os candidatos e os votos recebidos   -|"<<endl; 
+ cout << "| 4 - Listar o prefeito eleito                    -|"<<endl;
+ cout << "| 5 - Imprimir votos brancos e nulos              -|"<<endl;
+ cout << "| 9 - Sair                                        -|"<<endl;
+ cout << "|--------------------------------------------------|" << endl;  cin >> opcao; 
+ return opcao; 
+} 
+//LIMPA O VETOR COM OS NUMEROS DOS CANDIDATOS void limpa_cadprefeito(){ 
+ for (int i = 0; i < 10; i++){ 
+ numerocandidato[i]=-1; 
+ } 
+ return; 
+} 
+//funcao que verifica se ja existe numero cadastrado bool verifica_legenda(int legenda){ 
+ bool retorno = false; 
+ for (int i = 0; i < 10; i++){ 
+ if (numerocandidato[i] == legenda){ 
+ retorno = true; 
+ } 
+ } 
+ return retorno; 
+} 
+//funcao que retorna o indice do candidato 
+int encontra_legenda(int legenda){ 
+ int retorno = -1; 
+ for (int i = 0; i < 10; i++){ 
+ if (numerocandidato[i] == legenda){ 
+ retorno = i; 
+ } 
+ } 
+ return retorno; 
+} 
+//funcao para cadastro de prefeito 
+void cad_prefeito(){ 
+ int legenda = 0; 
+ bool errolegenda = true; 
+ indice_prefeito++; 
+ if (indice_prefeito >= 10){ 
+ cout<< "quantidade de prefeitos atingido"<<endl; 
+ system("pause"); 
+ }else{ 
+ cout<<"Digite o nome do candidato "<<endl; 
+ gets(nomecandidato[indice_prefeito]); 
+ setbuf(stdin,NULL); //limpar o buffer 
+ while (errolegenda){ 
+ cout<<"Digite o numero do candidato "<<endl;  cin>>legenda; 
+ setbuf(stdin,NULL); //limpar o buffer 
+ if ((legenda <= 0) || (legenda > 99)){ 
+ cout<<"A legenda deve ser entre 1 e 99"<<endl;  errolegenda = true; 
+ system("pause"); 
+ } 
+ else{ 
+ errolegenda = verifica_legenda(legenda);  if (errolegenda){ 
+ cout << "Numero para legenda ja cadastrado"<<endl;  system("pause"); 
+ } 
+ else{
+ numerocandidato[indice_prefeito] = legenda; 
+ cout<<"Legenda cadastrada com sucesso"<<endl; 
+ system("pause"); 
+ } 
+ } 
+ } 
+ } 
+ return; 
+} 
+void Prefeito_Eleito(){ 
+if((contabilizavotos[0] > contabilizavotos[1]) && (contabilizavotos[0] > contabilizavotos[2]) &&  (contabilizavotos[0] > contabilizavotos[3]) && (contabilizavotos[0] > contabilizavotos[4]) && (contabilizavotos[0] >  contabilizavotos[5]) 
+ && (contabilizavotos[0] > contabilizavotos[6]) && (contabilizavotos[0] > contabilizavotos[7]) &&  (contabilizavotos[0] > contabilizavotos[8]) && (contabilizavotos[0] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[0]<< "' com " << contabilizavotos[0]<< " votos." << endl; } 
+if((contabilizavotos[1] > contabilizavotos[0]) && (contabilizavotos[1] > contabilizavotos[2]) &&  (contabilizavotos[1] > contabilizavotos[3]) && (contabilizavotos[1] > contabilizavotos[4]) && (contabilizavotos[1] >  contabilizavotos[5]) 
+&& (contabilizavotos[1] > contabilizavotos[6]) && (contabilizavotos[1] > contabilizavotos[7]) &&  (contabilizavotos[1] > contabilizavotos[8]) && (contabilizavotos[1] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[1]<< "' com " << contabilizavotos[1]<< " votos." << endl; } 
+if((contabilizavotos[2] > contabilizavotos[0]) && (contabilizavotos[2] > contabilizavotos[1]) &&  (contabilizavotos[2] > contabilizavotos[3]) && (contabilizavotos[2] > contabilizavotos[4]) && (contabilizavotos[2] >  contabilizavotos[5]) 
+&& (contabilizavotos[2] > contabilizavotos[6]) && (contabilizavotos[2] > contabilizavotos[7]) &&  (contabilizavotos[2] > contabilizavotos[8]) && (contabilizavotos[2] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[2]<< "' com " << contabilizavotos[2]<< " votos." << endl; } 
+if((contabilizavotos[3] > contabilizavotos[0]) && (contabilizavotos[3] > contabilizavotos[1]) &&  (contabilizavotos[3] > contabilizavotos[2]) && (contabilizavotos[3] > contabilizavotos[4]) && (contabilizavotos[3] >  contabilizavotos[5]) 
+&& (contabilizavotos[3] > contabilizavotos[6]) && (contabilizavotos[3] > contabilizavotos[7]) &&  (contabilizavotos[3] > contabilizavotos[8]) && (contabilizavotos[3] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[3]<< "' com " << contabilizavotos[3]<< " votos." << endl; } 
+if((contabilizavotos[4] > contabilizavotos[0]) && (contabilizavotos[4] > contabilizavotos[1]) &&  (contabilizavotos[4] > contabilizavotos[2]) && (contabilizavotos[4] > contabilizavotos[3]) && (contabilizavotos[4] >  contabilizavotos[5]) 
+&& (contabilizavotos[4] > contabilizavotos[6]) && (contabilizavotos[4] > contabilizavotos[7]) &&  (contabilizavotos[4] > contabilizavotos[8]) && (contabilizavotos[4] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[4]<< "' com " << contabilizavotos[4]<< " votos." << endl; } 
+if((contabilizavotos[5] > contabilizavotos[0]) && (contabilizavotos[5] > contabilizavotos[1]) &&  (contabilizavotos[5] > contabilizavotos[2]) && (contabilizavotos[5] > contabilizavotos[3]) && (contabilizavotos[5] >  contabilizavotos[4]) 
+&& (contabilizavotos[5] > contabilizavotos[6]) && (contabilizavotos[5] > contabilizavotos[7]) &&  (contabilizavotos[5] > contabilizavotos[8]) && (contabilizavotos[5] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[5]<< "' com " << contabilizavotos[5]<< " votos." << endl; } 
+if((contabilizavotos[6] > contabilizavotos[0]) && (contabilizavotos[6] > contabilizavotos[1]) &&  (contabilizavotos[6] > contabilizavotos[2]) && (contabilizavotos[6] > contabilizavotos[3]) && (contabilizavotos[6] >  contabilizavotos[4]) 
+&& (contabilizavotos[6] > contabilizavotos[5]) && (contabilizavotos[6] > contabilizavotos[7]) &&  (contabilizavotos[6] > contabilizavotos[8]) && (contabilizavotos[6] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[6]<< "' com " << contabilizavotos[6]<< " votos." << endl; }
+if((contabilizavotos[7] > contabilizavotos[0]) && (contabilizavotos[7] > contabilizavotos[1]) &&  (contabilizavotos[7] > contabilizavotos[2]) && (contabilizavotos[7] > contabilizavotos[3]) && (contabilizavotos[7] >  contabilizavotos[4]) 
+&& (contabilizavotos[7] > contabilizavotos[5]) && (contabilizavotos[7] > contabilizavotos[6]) &&  (contabilizavotos[7] > contabilizavotos[8]) && (contabilizavotos[7] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[7]<< "' com " << contabilizavotos[7]<< " votos." << endl; } 
+if((contabilizavotos[8] > contabilizavotos[0]) && (contabilizavotos[8] > contabilizavotos[1]) &&  (contabilizavotos[8] > contabilizavotos[2]) && (contabilizavotos[8] > contabilizavotos[3]) && (contabilizavotos[8] >  contabilizavotos[4]) 
+&& (contabilizavotos[8] > contabilizavotos[5]) && (contabilizavotos[8] > contabilizavotos[6]) &&  (contabilizavotos[8] > contabilizavotos[7]) && (contabilizavotos[8] > contabilizavotos[9])){ cout << " O prefeito eleito foi '" << nomecandidato[8]<< "' com " << contabilizavotos[8]<< " votos." << endl; } 
+if((contabilizavotos[9] > contabilizavotos[0]) && (contabilizavotos[9] > contabilizavotos[1]) &&  (contabilizavotos[9] > contabilizavotos[2]) && (contabilizavotos[9] > contabilizavotos[3]) && (contabilizavotos[9] >  contabilizavotos[4]) 
+&& (contabilizavotos[9] > contabilizavotos[5]) && (contabilizavotos[9] > contabilizavotos[6]) &&  (contabilizavotos[9] > contabilizavotos[7]) && (contabilizavotos[9] > contabilizavotos[8])){ cout << " O prefeito eleito foi '" << nomecandidato[9]<< "' com " << contabilizavotos[9]<< " votos." << endl; } 
+return ; 
+} 
+void brancos_nulos(){ 
+cout << "Total de votos em brancos sao de " <<votosbrancos<<endl; 
+cout << "Total de votos nulos sao de " << votosnulos <<endl; 
+return; 
+} 
+//funcao que verifica se o titulo de eleitor ja foi utilizado 
+bool verificarvoto(char titulo[30]){ 
+ bool retorno = false; 
+ for(int i = 0; i < 20; i++){ 
+ if (strcmp(titulo,tituloeleitor[i]) == 0){ 
+ retorno = true; 
+ } 
+ } 
+ return retorno; 
+} 
+void candidatos_lista(){ 
+ cout << "Lista de Candidatos e seus votos"<< endl; 
+ cout << endl; 
+ cout << nomecandidato[0] << " - " << contabilizavotos[0] << endl; 
+ cout << nomecandidato[1] << " - " << contabilizavotos[1] << endl; 
+ cout << nomecandidato[2] << " - " << contabilizavotos[2] << endl; 
+ cout << nomecandidato[3] << " - " << contabilizavotos[3] << endl; 
+ cout << nomecandidato[4] << " - " << contabilizavotos[4] << endl; 
+ cout << nomecandidato[5] << " - " << contabilizavotos[5] << endl; 
+ cout << nomecandidato[6] << " - " << contabilizavotos[6] << endl; 
+ cout << nomecandidato[7] << " - " << contabilizavotos[7] << endl; 
+ cout << nomecandidato[8] << " - " << contabilizavotos[8] << endl; 
+ cout << nomecandidato[9] << " - " << contabilizavotos[9] << endl; 
+ return; 
+} 
+//funcao para contabilizar os votos 
+void escolhe_candidato(){ 
+ int numero = 0; 
+ int indice_candidato = -1; 
+ char votonulo; 
+ bool confirma = true; 
+ while(confirma){ 
+ numero = 0; 
+ limpatela(); 
+ cout<<"Digite o numero do candidato ou -1 para voto em branco"<<endl;
+ cin >> numero; 
+ setbuf(stdin,NULL); //limpar o buffer 
+ if (numero == -1){ 
+ votosbrancos++; 
+ confirma =false; 
+ } 
+ else{ 
+ if ((numero <= 0) || (numero > 99)){ 
+ cout<<"A legenda deve ser entre 1 e 99"<<endl; 
+ confirma = true; 
+ system("pause"); 
+ } 
+ else{ 
+ indice_candidato = encontra_legenda(numero); 
+ if (indice_candidato == -1){ 
+ cout<< "Candidato nao existe" << endl; 
+ cout<<endl; 
+ cout<<"Deseja anular o voto?<S/N>"<<endl; 
+ cout<<"Utilizar Letras MAISCULA"<<endl; 
+ cin >> votonulo; 
+ setbuf(stdin,NULL); //limpar o buffer 
+ if (votonulo == 'S'){ 
+ votosnulos++; 
+ confirma =false; 
+ } 
+ } 
+ else{ 
+ cout<< "Candidato: " << numerocandidato[indice_candidato] << " - "<<  nomecandidato[indice_candidato]<<endl; 
+ contabilizavotos[indice_candidato]++; 
+ confirma = false; 
+ } 
+ } 
+ } 
+ } 
+ cout<<"Voto confirmado com sucesso!"<<endl; 
+ system("pause;"); 
+ return; 
+} 
+//funcao que recebe o titulo de eleitor para votacao 
+void votacao(){ 
+ char titulo[30]; 
+ cout<< "Informe o numero do titulo de eleitor"<<endl; 
+ gets(titulo); 
+ setbuf(stdin,NULL); //limpar o buffer 
+ if (verificarvoto(titulo)){ 
+ cout << "O Eleitor já votou" <<endl; 
+ system("pause"); 
+ } 
+ else{ 
+ quant_eleitores++; 
+ strcpy(tituloeleitor[quant_eleitores],titulo); 
+ cout<<endl; 
+ escolhe_candidato(); 
+ } 
+ return; 
+} 
+//programa principal 
+int main() 
+{ 
+ int opcao=0; //opcao do menu 
+ limpa_cadprefeito(); // limpa o cadastro dos prefeitos
+ while(opcao != 9){ 
+ //limpatela(); 
+ opcao=menu(); 
+ setbuf(stdin,NULL); //limpar o buffer 
+ if (opcao == 1){ 
+ limpatela(); 
+ cad_prefeito(); 
+ } 
+ else if (opcao == 2){ 
+ limpatela(); 
+ votacao(); 
+ } 
+ else if(opcao == 3){ 
+ limpatela(); 
+ candidatos_lista(); 
+ } 
+ else if(opcao == 4){ 
+ limpatela(); 
+ Prefeito_Eleito(); 
+ } 
+ else if(opcao == 5){ 
+ limpatela(); 
+ brancos_nulos(); 
+ } 
+ } 
+ return 0; 
+} 

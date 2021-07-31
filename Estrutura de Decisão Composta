@@ -1,0 +1,92 @@
+1.Faça um programa que leia a idade de uma pessoa e verifique:
+•	Idade >= 70, exiba “Voto não obrigatório”
+•	Idade >=16, exiba “Pode votar”
+•	Outras idades, exibir “Não tem idade suficiente para votar”
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int idade = 0;
+  cout << "Digite a idade: ";
+  cin >> idade;
+  if(idade >= 70){
+  cout << "Voto nao Obrigatorio";
+  }
+  else if(idade >= 16){
+  cout << "Pode Votar";
+  }
+  else{
+  cout << "Nao tem idade para votar";
+  }
+  return 0;
+}
+
+2.Faça um programa que leia a velocidade máxima permitida em uma avenida e a velocidade com que o motorista estava dirigindo nela e calcule a multa que uma pessoa vai receber, sabendo que são pagos: 
+•	50 reais se o motorista estiver ultrapassado em 10km/h a velocidade permitida.
+•	100 reais se o motorista estiver ultrapassado em 20 km/h a velocidade permitida.
+•	200 reais se o motorista estiver ultrapassado acima de 30 km/h a velocidade permitida.
+Exibir na tela o valor da multa.
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int VelAvenida = 0;
+  int VelMotorista = 0;
+  cout << "Digite a Velocidade da Avenida" << endl;
+  cin >> VelAvenida;
+  cout << "Velocidade do Veiculo" << endl;
+  cin >> VelMotorista;
+  if(VelMotorista < VelAvenida+11){
+  cout << "Pagara 50";
+  }
+  else if(VelMotorista < VelAvenida+21){
+  cout << "Pagara 100";
+  }
+  else{
+  cout << "Pagara 200";
+  }
+  return 0;
+}
+
+3.Faça um programa para ler um salário e atualizá-lo de acordo com a tabela abaixo:
+Salário	% Reajuste
+> R$ 3.000,00	  10%
+> R$ 2.000,00 	20%
+> R$ 1.000,00	  25%
+Outros valores	50%
+
+Exiba para o usuário o novo salário calculado.
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int salario=0;
+  int reajuste=0.10*salario;
+  cout << "Digite o Salario: ";
+  cin >> salario;
+  if(salario >= 3000){
+  reajuste = salario*0.10;
+  cout << "Recebera reajuste de:";
+  cout << reajuste;
+  }
+  else if (salario >= 2000){
+  reajuste = salario*0.20;
+  cout << "Recebera reajuste de:";
+  cout << reajuste;
+  }
+  else if(salario >= 1000){
+  reajuste = salario*0.25;
+  cout << "Recebera reajuste de:";
+  cout << reajuste;
+  }
+  else {
+  reajuste = salario*0.50;
+  cout << "Recebera reajuste de:";
+  cout << reajuste;
+  }
+  return 0;
+}
+

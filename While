@@ -1,0 +1,62 @@
+Para quem não entregar em manuscrito, apresentar o código e o print da execução do programa.
+
+1)	Faça um programa para cada item: 
+
+a)	Exibir os números pares de 1 a 100; 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int cont=0;
+    while (cont <= 99){
+           cont++;
+           cont++;
+           cout << cont<< "  ";
+    }
+    return 0;
+}
+
+b)	Exibir os números divisíveis por 3, sendo do número 50 ao 100; 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int contador = 50;
+    while(contador >= 50 && contador < 101){
+    if(contador %3 == 0){
+    cout << contador << " ";
+    }
+    contador++;
+    }
+    return 0;
+}
+
+c)	Ler 20 números em um loop, e exibir quantos são pares e quantos são ímpares.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+
+    int num = 0;
+    int par = 0;
+    int impar = 0;
+    int valor = 0;
+    cout << "Digite 20 vezes um valor!" << endl;
+    while(num < 20 ){
+        cout << "Digite um numero: ";
+        cin >> valor;
+    if (valor % 2 == 0){
+        par++;
+    }
+    else{
+        impar++;
+    }
+    num++;
+    }
+    cout << "Quantidades de numeros PARES:" << par << endl;
+    cout << "Quantidades de numeros IMPARES:" << impar << endl;
+    return 0;
+}

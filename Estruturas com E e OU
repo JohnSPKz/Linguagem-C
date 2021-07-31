@@ -1,0 +1,70 @@
+  1.Faça um programa que leia a idade e o tempo de serviço de um trabalhador e escreva se ele pode ou não se aposentar. As condições para aposentadoria são:
+- Ter pelos menos 65 anos
+- Ou ter trabalhado pelo menos 30 anos.
+- Ou ter mais de 60 anos e ter trabalhado a mais de 25 anos 
+ 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int idade,temp = 0;
+  cout<<"Digite sua idade:";
+  cin >> idade;
+  cout<<"Digite seu tempo de servico:";
+  cin >> temp;
+  if(idade >= 65 || temp >= 30){
+  cout << "Tem condicao de aposentadoria!";
+  }
+  else if(idade >= 60 && temp > 25){
+  cout << "Tem condicao de aposentadoria!";
+  }
+  else{
+  cout << "Nao tem condicao de aposentadoria!";
+  }
+  return 0;
+}
+
+2. Faça um programa que informe se um dado ano é ou não bissexto. Obs: um ano é bissexto se ele for divisível por 400 ou se ele for divisível por 4 e não por 100. 
+ 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int ano = 0;
+  cout << "Digite o ANO: ";
+  cin >> ano;
+  if(ano %400 == 0 || ano % 4 == 0 && ano % 100 !=0 ){
+  cout << "O ANO E BISSEXTO" << endl;
+  }
+  else{
+  cout << "O ANO NAO E BISSEXTO" << endl;
+  }
+  return 0;
+}
+
+3.Faça um programa que informe a obrigatoriedade de voto. Sendo: 
+- < 16 - não pode votar 
+- >= 16 e < 18 ou >= 70 - voto facultativo
+- >= 18 e < 70 - voto obrigatório
+ 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int idade=0;
+  cout << "Informe a idade: ";
+  cin >> idade;
+  if(idade >= 16 && idade < 18 || idade >= 70){
+  cout << "Voto Facultativo!";
+  }
+  else if(idade >= 18 && idade < 70){
+  cout << "Voto Obrigatorio!";
+  }
+  else{
+      cout << "Nao pode votar!";
+  }
+      return 0;
+}

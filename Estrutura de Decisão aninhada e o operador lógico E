@@ -1,0 +1,105 @@
+1)	Faça um programa que leia 3 números e exibia o maior deles.
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  int num1, num2, num3=0;
+  cout << "Digite Primeiro Numero: ";
+  cin >> num1;
+  cout << "Digite Segundo Numero: ";
+  cin >> num2;
+  cout << "Digite Terceiro Numero: ";
+  cin >> num3;
+  if(num3 > num1 && num2){
+  cout << "Terceiro Numero e MAIOR";
+  }
+  else if(num2 > num1 && num3){
+  cout << "Segundo Numero e MAIOR";
+  }
+  else if(num1 > num2 && num3){
+  cout << "Primeiro Numero e MAIOR";
+  }
+  return 0;
+}
+
+2)	Faça um programa que leia a idade e exiba a categoria que um jogador de futebol pertence. Utilize a tabela abaixo como referência.
+ 
+ 
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int idade = 0;
+  cout << "Digite a sua idade:";
+  cin >> idade;
+  if((idade >= 7)&&(idade <= 9)){
+  cout << "Categoria FRAUDINHA";
+  }
+  if((idade >= 10)&&(idade <= 11)){
+  cout << "Categoria DENTE DE LEITE";
+  }
+  if((idade >= 12)&&(idade <= 13)){
+  cout << "Categoria MIRIM";
+  }
+  if((idade >= 14)&&(idade <= 15)){
+  cout << "Categoria INFANTIL";
+  }
+  if((idade >= 16)&&(idade <= 18)){
+  cout << "Categoria JUVENIL";
+  }
+  if((idade >= 19)&&(idade <= 20)){
+  cout << "Categoria JUNIOR";
+  }
+  if((idade >= 21)&&(idade <= 45)){
+  cout << "Categoria ADULTO";
+  }
+  if((idade >= 46)){
+  cout << "Categoria SENIOR";
+  }
+  return 0;
+}
+
+3)	O IMC (índice de massa corpórea) indica o grau de obesidade de uma pessoa. Este índice é obtido pelo peso (em kg) dividido pelo quadrado da altura (em metros). A tabela a seguir apresenta as faixas deste índice:
+
+Faça um programa que solicita o peso e a altura de uma pessoa, calcule o IMC, apresente o seu valor e a avaliação.
+
+ 
+#include <iostream>
+using namespace std;
+int main()
+{
+  float peso, altura = 0;
+  cout << "Digite sua Altura: ";
+  cin >> altura;
+  cout << "Digite seu Peso: ";
+  cin >> peso;
+  float alt = altura*altura;
+  float imc = peso/alt;
+  if(imc < 20){
+  cout << "Classificacao: Abaixo do Normal"<< endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  else if((imc >= 20)&&(imc < 25)){
+  cout << "Classificacao: Normal" << endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  else if((imc >= 25)&&(imc < 30)){
+  cout << "Classificacao: Pre-Sobrepeso" << endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  else if((imc >= 30)&&(imc < 35)){
+  cout << "Classificacao: Sobrepeso" << endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  else if((imc >= 35)&&(imc < 40)){
+  cout << "Classificacao: Obesidade Moderada" << endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  else if(imc >= 40){
+  cout << "Classificacao: Obesidade Morbida" << endl;
+  cout << "Valor do IMC:" << imc;
+  }
+  return 0;
+}

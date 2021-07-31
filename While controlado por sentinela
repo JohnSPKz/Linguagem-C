@@ -1,0 +1,70 @@
+1. Faça um algoritmos que leia uma quantidade não conhecida previamente de números inteiros  maiores que zero. Encerre a digitação quando for informado o número zero. Ao final, mostre qual o  maior número que foi digitado.  
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int valor = 1; 
+ int maiornumero = 0; 
+ cout << "Digite 0 para encerrar" << endl; 
+ while(valor > 0){ 
+ cout << "Digite um Numero" << endl; 
+ cin >> valor; 
+ if (valor > maiornumero){
+ maiornumero = valor; 
+ } 
+ } 
+ cout << "Numero maior foi:" << " " << maiornumero <<endl; 
+ return 0; 
+} 
+
+2. O professor Girafales decidiu dar uma coxinha para o aluno com a maior nota na prova. Faça um  algoritmo que leia as notas de n provas (não se sabe a quantidade previamente, portanto encerre a  digitação quando for digitada uma nota negativa). Ao final, o algoritmo deve mostrar a nota do aluno  ganhador.  
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int nota = 1; 
+ int maiornumero = 0;
+ while(nota > 0){ 
+ cout << "Digite valor da nota" << endl; 
+ cin >> nota; 
+ if (nota > maiornumero){ 
+ maiornumero = nota; 
+ } 
+ } 
+ cout << "Nota maior foi:" << " " << maiornumero << " E o ganhador ganhou uma coxinha." << endl;  return 0; 
+} 
+
+3. Foi realizada uma eleição para escolher a miss Computação. Três candidatas estão disputando o  título: Rapunzel (1), Branca de Neve (2) e Penélope (3). Faça um algoritmo para contagem dos votos.  O algoritmo deve ler o voto individual de cada candidata, identificada pelos números 1, 2 e 3, e somá los. Ao final, dizer quem ganhou. (Utilize o conceito de sentinela para encerrar o loop)
+
+#include <iostream> 
+using namespace std; 
+int main() 
+{ 
+ int soma = 0; 
+ int voto = 1; 
+ int miss1 = 0; 
+ int miss2 = 0; 
+ int miss3 = 0; 
+ while(voto > 0 && voto <= 3){ 
+ cout << "Digite valor da Voto" << endl; 
+ cin >> voto;
+ if (voto == 1){ 
+ miss1++; 
+ } 
+ else if (voto == 2){ 
+ miss2++; 
+ } 
+ else if (voto == 3){ 
+ miss3++; 
+ } 
+ else if(miss1 > miss2 && miss3){ 
+ cout << "O Ganhador Foi: Rapunzel"<< endl;  } 
+ else if(miss2 > miss1 && miss3){ 
+ cout << "O Ganhador Foi: Branca de Neve"<< endl;  } 
+ else if(miss3 > miss2 && miss1){ 
+ cout << "O Ganhador Foi: Penélope"<< endl;  } 
+ } 
+ return 0; 
+}
